@@ -11,16 +11,14 @@ func main() {
 
 func lengthOfTheLastWorld(s string) int {
 	length := 0
-	x := true
-	for i := len(s) - 1; i > 0; i-- {
-		if s[i] == ' ' && x == true {
-			continue
-		}
-		if s[i] == ' ' {
-			return length
-		}
+	i := len(s) - 1
+	for i >= 0 && s[i] == ' ' {
+		i--
+	}
+
+	for i >= 0 && s[i] != ' ' {
 		length++
-		x = false
+		i--
 	}
 	return length
 }
